@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang='es'>
+    <head>
+        <%- include('./templates/header')%>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <%- include('./templates/navbar')%>
+                </div>
+                <div class="card-body">
+                    <%if(pets.size){%>
+                        <table class="table bm-2" id="myTable">
+                            <div class="card text-white bg-dark">
+                                <div class="row m-3">
+                                    <div class="col-sm-6">
+                                        <label for="myInput">Búsqueda</label>
+                                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="searchIndex">Buscar por </label>
+                                            <select id="searchIndex">
+                                            <option value="0">Identificador</option>
+                                            <option value="1">Nombre</option>
+                                            <option value="2">Especie</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <thead>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Nombre</th>
+                                <th class="text-center">Especie</th>
+                                <th class="text-center">Edad</th>
+                                <th class="text-center">Contacto</th>
+                                <th class="text-center">Género</th>
+                            </thead>
+                            <tbody>
+                                <% pets.forEach((pet,k) => { %>
+                                    <tr>
+                                        <td class="text-center"><%= k %></td>
+                                        <td class="text-center"><%= pet.name %></td>
+                                        <td class="text-center"><%= pet.spec %></td>
+                                        <td class="text-center"><%= pet.age %></td>
+                                        <td class="text-center"><%= pet.phone %></td>
+                                        <td class="text-center"><%= pet.gender %></td>
+                                    </tr>
+                                <%})%>
+                            </tbody>
+                        </table>
+                    <%}else{%>
+                        <h5>No hay Registros</h5>
+                    <%}%>
+                    <a class="btn btn-success" href="/insert" role="button">Nuevo Registro</a>
+                </div>
+            </div>
+        </div>
+        <%- include('./templates/footer')%>
+    </body>
+    <script>
+        function myFunction(){
+            //Declare vars
+            var input,filter,table,tr,td,i,txtValue,searchIndex
+            input = document.getElementById("myInput")
+            filter = input.value.toUpperCase()
+            table = document.getElementById("myTable")
+            tr = table.getElementsByTagName("tr")
+            searchIndex = document.getElementById("searchIndex").value
+
+            //Loop through all table rows, and hide those that do not match
+            for (i = 0; i<tr.length; i++) {
+                //("td")[this index selects a different search column]
+                td = tr[i].getElementsByTagName("td")[searchIndex]
+                if (td){
+                    txtValue = td.textContent || td.innerText
+                    if(txtValue.toUpperCase().indexOf(filter) > -1 ){
+                        tr[i].style.display = ""
+                    }
+                    else {
+                        tr[i].style.display = "none"
+                    }
+                }
+            }
+        }
+    </script>
+</html>

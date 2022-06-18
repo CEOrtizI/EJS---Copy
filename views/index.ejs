@@ -2,6 +2,9 @@
 <html lang='es'>
     <head>
         <%- include('./templates/header')%>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -10,33 +13,6 @@
                     <%- include('./templates/navbar')%>
                 </div>
                 <div class="card-body">
-                    <%if(pets.size){%>
-                        <table class="table bm-2">
-                            <thead>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Especie</th>
-                                <th>Edad</th>
-                                <th>Contacto</th>
-                                <th>Género</th>
-                            </thead>
-                            <tbody>
-                                <% pets.forEach((pet,k) => { %>
-                                    <tr>
-                                        <td><%= k %></td>
-                                        <td><%= pet.name %></td>
-                                        <td><%= pet.spec %></td>
-                                        <td><%= pet.age %></td>
-                                        <td><%= pet.phone %></td>
-                                        <td><%= pet.gender %></td>
-                                    </tr>
-                                <%})%>
-                            </tbody>
-                        </table>
-                    <%}else{%>
-                        <h5>No hay Registros</h5>
-                    <%}%>
-                    <a class="btn btn-primary" href="/insert" role="button">Nuevo Registro</a>
                 </div>
             </div>
         </div>
