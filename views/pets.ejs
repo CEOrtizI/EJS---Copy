@@ -3,20 +3,22 @@
     <head>
         <%- include('./templates/header')%>
     </head>
+    
     <body>
+        <div id="intro" class="bg-image">
         <div class="container">
-            <div class="card">
+           <div class="card">
                 <div class="card-header">
                     <%- include('./templates/navbar')%>
                 </div>
                 <div class="card-body">
                     <%if(pets.size){%>
-                        <table class="table bm-2" id="myTable">
+                        <table class="table bm-2" id="animalsTable">
                             <div class="card text-white bg-dark">
                                 <div class="row m-3">
                                     <div class="col-sm-6">
                                         <label for="myInput">Búsqueda</label>
-                                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
+                                        <input type="text" id="searchTerm" onkeyup="syncronicSearch()" placeholder="Search...">
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="searchIndex">Buscar por </label>
@@ -57,14 +59,15 @@
             </div>
         </div>
         <%- include('./templates/footer')%>
+    </div>
     </body>
     <script>
-        function myFunction(){
+        function syncronicSearch(){
             //Declare vars
             var input,filter,table,tr,td,i,txtValue,searchIndex
-            input = document.getElementById("myInput")
+            input = document.getElementById("searchTerm")
             filter = input.value.toUpperCase()
-            table = document.getElementById("myTable")
+            table = document.getElementById("animalsTable")
             tr = table.getElementsByTagName("tr")
             searchIndex = document.getElementById("searchIndex").value
 

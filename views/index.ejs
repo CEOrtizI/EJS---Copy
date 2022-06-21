@@ -7,15 +7,39 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <%- include('./templates/navbar')%>
-                </div>
-                <div class="card-body">
+        <div id="intro" class="bg-image">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <%- include('./templates/navbar')%>
+                    </div>
+                    <div class="card-body bg-dark">
+                        <div class="card bg-dark">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Mascotas</h5>
+                                      <p class="card-text">En este apartado puede acceder al registro actual de mascotas</p>
+                                      <a href="pets" class="btn btn-primary">A mascotas</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Sobre nosotros</h5>
+                                      <p class="card-text">En este apartado puede acceder a la información de la clínica</p>
+                                      <a href="about" class="btn btn-primary">A sobre nosotros</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <%- include('./templates/footer')%>
         </div>
-        <%- include('./templates/footer')%>
     </body>
 </html>

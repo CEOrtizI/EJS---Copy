@@ -2,19 +2,53 @@
 <html lang='es'>
     <head>
         <%- include('./templates/header')%>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div id="intro" class="bg-image">
+        <div class="container ">
             <div class="card">
                 <div class="card-header">
                     <%- include('./templates/navbar')%>
                 </div>
-                <div class="card-body">
-                    <h1>About us</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra, dui ac congue laoreet, libero dolor consectetur leo, at hendrerit tellus dolor non erat. Suspendisse eleifend tempor nunc, nec sagittis magna imperdiet vel. Donec id est nibh. Suspendisse non lectus lacinia odio venenatis luctus. Phasellus lorem enim, hendrerit at mollis tincidunt, iaculis a ante. Phasellus non facilisis leo. Curabitur fringilla, mi non aliquet viverra, nisl metus porta augue, id cursus purus turpis quis leo. Sed ultrices elementum est, sed vulputate eros egestas eget. Fusce interdum sagittis mauris sit amet fringilla. Vestibulum egestas urna ipsum, nec laoreet magna accumsan vel.</p>
+                <div class="m-4">
+                    <div class="card text-center">
+                        <div class="card-header bg-dark">
+                            <ul class="nav nav-tabs card-header-tabs text-center justify-content-center" id="myTab">
+                                <li class="nav-item">
+                                    <a href="#home" class="nav-link active text-ble" data-bs-toggle="tab">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#profile" class="nav-link text-blue" data-bs-toggle="tab">Misión</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#messages" class="nav-link text-blue" data-bs-toggle="tab">Visión</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="home">
+                                    <h5 class="card-title">Sobre nosotros</h5>
+                                    <p class="card-text">Esta clínica Veterinaria es una empresa dedicada al cuidado de las mascotas, que lleva en el mercado desde el año 2006, trabajando en pro del bienestar de cada mascota. Desde entonces, sus primordiales objetivos estuvieron encaminados a mejorar en todos sus servicios, y muchos de estos objetivos se han logrado, como la innovación de los equipos de diagnóstico, cirugía, y la adecuación de la infraestructura, dando como resultado el poder ofrecer a todos nuestros clientes un servicio integral atendidos por profesionales de altísima calidad, todo ésto con el fin de tratar nuestros pacientes como seres que merecen la mejor atención y especial cuidado.</p>
+                                    <p class="card-text">Los servicios que ofrecemos incluyen, consulta general y especializada en ortopedia y neurología, hospitalización diurna, cirugía de tejidos blandos, cirugía neurológica y ortopédica, ecografía, radiografía, endoscopia, broncoscopia, laboratorio clínico veterinario, peluquería canina y felina, petshop.</p>
+                                    <p class="card-text">Nuestro quirófano cuenta con equipos como anestesia inhalada, monitores, accesorios y equipo médico que representan vital importancia para la mascota ya que disminuye el riesgo que corre todo paciente durante un procedimiento quirúrgico.</p>
+                                </div>
+                                <div class="tab-pane fade" id="profile">
+                                    <h5 class="card-title">Misión</h5>
+                                    <p class="card-text">Esta clínica veterinaria tiene como misión ofrecer bienestar a cada una de nuestras mascotas, que sus familias entiendan los deberes y los derechos que tienen las mascotas desde el instante que entran a formar parte de sus vidas. Nuestro grupo de trabajo comparte valores y principios éticos de respeto, responsabilidad y compromiso, superándolas expectativas de nuestros clientes y entregando calidad y satisfacción en nuestros servicios.</p>
+                                </div>
+                                <div class="tab-pane fade" id="messages">
+                                    <h5 class="card-title">Visión</h5>
+                                    <p class="card-text">Esta clínica veterinaria  tiene como visión ser una empresa sólida, líder en prestación de servicios médicos veterinarios de la mejor calidad y profesionalismo, con énfasis en animales de compañía. Nuestro compromiso social es mejorar la calidad de vida de las familias a través del cuidado de la salud de nuestros pacientes contando con excelente tecnología, un equipo médico altamente calificado con educación y capacidad continua.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <%- include('./templates/footer')%>
+        </div>
     </body>
 </html>
