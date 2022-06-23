@@ -109,7 +109,7 @@
 
             <div class="row mt-3">
               <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-outline-success btn-lg">
+                <button type="submit" class="btn btn-outline-success btn-lg" onclick="updatePets()">
                   Registrar
                 </button>
               </div>
@@ -118,7 +118,7 @@
         </div>
      </div>
     <script>
-      var  dataSpecies = '<%-JSON.stringify(species) %>'
+      var dataSpecies = '<%-JSON.stringify(species) %>'
       var message='<%-mensaje %>'
      
       if(message==="false"){

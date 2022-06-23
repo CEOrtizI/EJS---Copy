@@ -18,7 +18,7 @@
                                 <div class="row m-3">
                                     <div class="col-sm-6">
                                         <label for="myInput">Búsqueda</label>
-                                        <input type="text" id="searchTerm" onkeyup="syncronicSearch()" placeholder="Search...">
+                                        <input type="text" id="searchTerm" onkeyup="syncronicSearch()" placeholder="Búsqueda...">
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="searchIndex">Buscar por </label>
@@ -54,37 +54,32 @@
                     <%}else{%>
                         <h5>No hay Registros</h5>
                     <%}%>
-                    <a class="btn btn-success" href="/insert" role="button">Nuevo Registro</a>
+                    <div class="row m-3">
+                        <div class="col-sm-6">
+                            <a class="btn btn-success" href="/insert" role="button">Nuevo Registro</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="btn-group">
+                                <input id='inputFile' type='file' hidden/>
+                                <input id='loadBtn' type='button' class="btn btn-secondary" value='Cargar'/>
+                                <%if(pets.size){%>
+                                    <script>
+                                        var dataPets = new Map()
+                                        dataPets = '<%-JSON.stringify(pets)%>'
+                                        console.log(dataPets)
+                                    </script>
+                                    <button type="button" class="btn btn-secondary" onclick="exportData(dataPets)">Guardar</button>
+                                <%}else{%>
+                                    <button type="button" class="btn btn-secondary" disabled>Guardar</button>
+                                <%}%>
+                            </div>
+                        </div>
+                        <pre id="output"></pre>
+                    </div>
                 </div>
             </div>
         </div>
         <%- include('./templates/footer')%>
     </div>
     </body>
-    <script>
-        function syncronicSearch(){
-            //Declare vars
-            var input,filter,table,tr,td,i,txtValue,searchIndex
-            input = document.getElementById("searchTerm")
-            filter = input.value.toUpperCase()
-            table = document.getElementById("animalsTable")
-            tr = table.getElementsByTagName("tr")
-            searchIndex = document.getElementById("searchIndex").value
-
-            //Loop through all table rows, and hide those that do not match
-            for (i = 0; i<tr.length; i++) {
-                //("td")[this index selects a different search column]
-                td = tr[i].getElementsByTagName("td")[searchIndex]
-                if (td){
-                    txtValue = td.textContent || td.innerText
-                    if(txtValue.toUpperCase().indexOf(filter) > -1 ){
-                        tr[i].style.display = ""
-                    }
-                    else {
-                        tr[i].style.display = "none"
-                    }
-                }
-            }
-        }
-    </script>
 </html>
