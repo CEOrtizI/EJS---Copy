@@ -64,9 +64,7 @@
                                 <input id='loadBtn' type='button' class="btn btn-secondary" value='Cargar'/>
                                 <%if(pets.size){%>
                                     <script>
-                                        var dataPets = new Map()
-                                        dataPets = '<%-JSON.stringify(pets)%>'
-                                        console.log(dataPets)
+                                        var dataPets = '<%-JSON.stringify(pets)%>'
                                     </script>
                                     <button type="button" class="btn btn-secondary" onclick="exportData(dataPets)">Guardar</button>
                                 <%}else{%>
